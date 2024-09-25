@@ -91,3 +91,24 @@
   --tw-bg-opacity: 1;
   background-color: rgb(242 157 191 / var(--tw-bg-opacity));
 }
+
+.animated-edge {
+  stroke: #000;
+  stroke-width: 3;
+  fill: none;
+}
+
+.animated-edge path {
+  stroke-dasharray: 5;
+  animation: dash 0.5s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.tracking-tighter {
+  letter-spacing: -0.05em;
+}

@@ -9,7 +9,9 @@ const HowItWorks: React.FC = () => {
     <section>
       <div className="center h-full flex-col space-y-16 px-4 pt-48 lg:space-y-24">
         {/* Title */}
-        <h1 className="text-center text-6xl text-black">How it works</h1>
+        <h1 className="text-center text-6xl font-semibold text-black">
+          How it works
+        </h1>
 
         {/* First Section */}
         <div className="center flex flex-wrap gap-8 lg:gap-16">

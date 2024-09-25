@@ -3,17 +3,17 @@ import { SiteConfig } from "@/types"
 import { env } from "@/env.mjs"
 
 export const siteConfig: SiteConfig = {
-  name: "Next Entree",
-  author: "redpangilinan",
+  name: "Gumloop | AI Automation Framework",
+  author: "Sahil",
   description:
-    "Next.js 14+ starter template with app router, shadcn/ui, typesafe env, icons and configs setup.",
-  keywords: ["Next.js", "React", "Tailwind CSS", "Radix UI", "shadcn/ui"],
+    "The no-code platform to build and host AI-powered business automations.",
+  keywords: ["AI Automation", "No-code", "Business Automation", "Gumloop"],
   url: {
-    base: env.NEXT_PUBLIC_APP_URL,
-    author: "https://rdev.pro",
+    base: "https://gumloop.com", // or env.NEXT_PUBLIC_APP_URL if needed
+    author: "https://gumloop.com",
   },
   links: {
-    github: "https://github.com/redpangilinan/next-entree",
+    github: "https://github.com/gumloop", // Assuming there's a GitHub link
   },
-  ogImage: `${env.NEXT_PUBLIC_APP_URL}/og.jpg`,
+  ogImage: "https://gumloop.com/images/link-preview.png",
 }

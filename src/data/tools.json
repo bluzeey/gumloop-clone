@@ -56,15 +56,6 @@
     "name": "News Story Categorizer"
   },
   {
-    "declaration": {
-      "description": "",
-      "key_operators": {
-        "Slack Message Reader": ["slack.png", 1]
-      },
-      "name": "Flow"
-    }
-  },
-  {
     "description": "Upload your resume and enter the link to the job posting to have cover letters automatically written.",
     "key_operators": {
       "Ask AI": ["ai.png", 1],

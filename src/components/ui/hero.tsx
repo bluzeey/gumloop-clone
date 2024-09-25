@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 import Flow from "./flow"
 
@@ -15,7 +16,7 @@ export default function Hero(): JSX.Element {
             with AI
           </h1>
         </div>
-        <div className=" max-w-xl text-xl tracking-tighter text-black">
+        <div className="max-w-xl text-xl tracking-tighter text-black">
           Drag, drop, and deploy custom tools your business needs.
           <br />
           No AI expertise needed.
@@ -26,48 +27,7 @@ export default function Hero(): JSX.Element {
           <div className="center flex h-[350px] w-full max-w-md md:h-[350px] lg:h-full lg:max-w-5xl">
             <div className="center flex h-full w-full">
               {/* Add your dynamic content or use a custom flow/diagram component */}
-              <div
-                className="react-flow"
-                data-testid="rf__wrapper"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  overflow: "hidden",
-                  position: "relative",
-                  zIndex: 0,
-                }}
-              >
-                <div
-                  className="react-flow__renderer"
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    top: 0,
-                    left: 0,
-                  }}
-                >
-                  {/* Example Flow Content (can be replaced) */}
-                  <div
-                    className="react-flow__viewport react-flow__container"
-                    style={{ transform: "translate(-100px, -5px) scale(1)" }}
-                  >
-                    <div className="react-flow__nodes">
-                      <div className="react-flow__node react-flow__node-input nopan min-w-[200px] rounded-lg border border-gray-500 bg-[#89ccf6] bg-opacity-50 p-2 text-black shadow-lg">
-                        <div className="flex items-center space-x-2">
-                          <Image
-                            src="/images/web_scraper.png"
-                            alt="Node Icon"
-                            width={24}
-                            height={24}
-                          />
-                          <span className="font-semibold">Website Scraper</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Flow />
             </div>
           </div>
         </div>
@@ -80,42 +40,14 @@ export default function Hero(): JSX.Element {
               className="text-md inline-flex h-11 items-center justify-center gap-1 space-x-2 whitespace-nowrap rounded-md border border-[#f06293] bg-[#fff0f4] px-7 py-3 font-medium text-[#f06293] ring-offset-background transition-all duration-100 ease-in-out hover:bg-pink-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
             >
               <span>Start Automating</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-arrow-right h-4"
-              >
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
+              <ArrowRight className="h-4" />
             </button>
             <button
               type="button"
               className="bg-warm-white flex h-11 w-full max-w-60 items-center justify-center gap-1 space-x-2 whitespace-nowrap rounded-md border border-input px-7 text-xs font-medium text-gray-500 ring-offset-background transition-all duration-300 hover:bg-gray-50 hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:text-sm md:text-base"
             >
               <span>Book a demo</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-arrow-right hidden h-4 lg:block"
-              >
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
+              <ArrowRight className="hidden h-4 lg:block" />
             </button>
           </div>
         </div>
@@ -144,48 +76,15 @@ export default function Hero(): JSX.Element {
       <div className="center hidden min-h-[250px] w-full md:min-h-[350px] lg:mr-10 lg:block lg:min-h-full lg:w-full">
         <div className="center flex h-[350px] w-full max-w-md md:h-[350px] lg:h-full lg:max-w-5xl">
           <div className="center flex h-full w-full">
-            {/* Add your dynamic content or use a custom flow/diagram component */}
-            <div
-              className="react-flow"
-              data-testid="rf__wrapper"
-              style={{
-                width: "100%",
-                height: "100%",
-                overflow: "hidden",
-                position: "relative",
-                zIndex: 0,
-              }}
-            >
-              <div
-                className="react-flow__renderer"
-                style={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  top: 0,
-                  left: 0,
-                }}
-              >
-                {/* Example Flow Content (can be replaced) */}
-                <div
-                  className="react-flow__viewport react-flow__container"
-                  style={{
-                    transform:
-                      "translate(-122.786px, 46.6935px) scale(1.48831)",
-                  }}
-                >
-                  <Flow />
-                </div>
-              </div>
-            </div>
+            <Flow />
           </div>
         </div>
       </div>
 
       {/* Background Blur Elements */}
       <div className="hidden lg:block">
-        <div className="blur-4xl absolute -left-1/4 bottom-1/2 -z-10 h-56 w-[700px] -rotate-[50deg] rounded-full bg-pink-400/30 opacity-60 md:opacity-100"></div>
-        <div className="blur-4xl absolute -right-1/4 bottom-1/4 -z-10 h-56 w-[500px] rotate-[40deg] rounded-full bg-pink-300/40 opacity-60 md:opacity-100"></div>
+        <div className="-z-8 absolute -left-1/4 bottom-1/2 h-56 w-[700px] -rotate-[50deg] rounded-full bg-pink-400/30 opacity-60 blur-3xl md:opacity-100"></div>
+        <div className="-z-8 absolute -right-1/4 bottom-1/4 h-56 w-[500px] rotate-[40deg] rounded-full bg-pink-300/40 opacity-60 blur-3xl md:opacity-100"></div>
       </div>
     </div>
   )

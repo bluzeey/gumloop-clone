@@ -96,27 +96,27 @@ const navItems: NavItem[] = [
     content: [
       {
         label: "Wall of Love",
-        icon: <Heart className="h-4 w-4" />,
+        icon: <Heart className="h-4 w-4 text-pink-400" />,
         link: "/love",
       },
       {
         label: "Blog",
-        icon: <Newspaper className="h-4 w-4" />,
+        icon: <Newspaper className="h-4 w-4 text-pink-400" />,
         link: "https://blog.gumloop.com/",
       },
       {
         label: "Handbook",
-        icon: <BookMarked className="h-4 w-4" />,
+        icon: <BookMarked className="h-4 w-4 text-pink-400" />,
         link: "https://blog.gumloop.com/handbook/",
       },
       {
         label: "About Us",
-        icon: <BookMarked className="h-4 w-4" />,
+        icon: <BookMarked className="h-4 w-4 text-pink-400" />,
         link: "https://blog.gumloop.com/about/",
       },
       {
         label: "Security Policies",
-        icon: <LockKeyhole className="h-4 w-4" />,
+        icon: <LockKeyhole className="h-4 w-4 text-pink-400" />,
         link: "https://trust.gumloop.com/",
       },
     ],
@@ -160,11 +160,14 @@ export default function Header(): JSX.Element {
                   </div>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="ml-56 w-56">
+              <DropdownMenuContent className="background-blur-xl ml-56 w-56 rounded-2xl border-pink-400 bg-white">
                 {item.content.map((subItem) => (
-                  <DropdownMenuItem key={subItem.label}>
+                  <DropdownMenuItem
+                    className="space-y-1 rounded-lg"
+                    key={subItem.label}
+                  >
                     <Link
-                      href={subItem.link}
+                      href={`https://gumloop.com` + subItem.link}
                       className="group flex items-center space-x-2 text-neutral-700 transition-colors hover:text-pink-500"
                     >
                       {subItem.icon}
@@ -183,7 +186,7 @@ export default function Header(): JSX.Element {
           <div className="relative">
             <Link
               className="flex items-center space-x-2 rounded-xl pr-2 transition-all"
-              href="/pricing"
+              href="https://gumloop.com/pricing"
             >
               <div className="mb-1 rounded-lg p-2">
                 <CreditCard className="h-4 w-4 text-pink-400 md:h-6 md:w-6" />

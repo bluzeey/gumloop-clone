@@ -9,7 +9,7 @@ const Testimonial: React.FC = () => {
         <h4 className="mb-4 text-center text-2xl font-semibold uppercase text-primary">
           Testimonials
         </h4>
-        <h2 className="mb-4 text-center text-4xl">
+        <h2 className="mb-4 text-center text-4xl font-semibold">
           See What Our Users Are Saying ❤️
         </h2>
         <div className="mb-8 text-center text-xl tracking-tighter">
