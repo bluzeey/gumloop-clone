@@ -3,17 +3,17 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 
 // Define the type for your JSON structure
-interface Declaration {
+interface Tool {
   description: string
-  key_operators?: {
-    // Make key_operators optional to avoid runtime errors
-    [key: string]: [string, number] // Ensure each operator is a tuple of [string, number]
+  key_operators: {
+    [key: string]: [string, number]
   }
   name: string
 }
 
+type ToolsData = Tool[]
 interface CardProps {
-  data: Declaration[]
+  data: ToolsData
 }
 
 const Card: React.FC<CardProps> = ({ data }) => {
