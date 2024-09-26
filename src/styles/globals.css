@@ -112,3 +112,7 @@
 .tracking-tighter {
   letter-spacing: -0.05em;
 }
+
+.blur-4xl {
+  --tw-blur: blur(150px);
+}

@@ -83,8 +83,8 @@ export default function Hero(): JSX.Element {
 
       {/* Background Blur Elements */}
       <div className="hidden lg:block">
-        <div className="-z-8 absolute -left-1/4 bottom-1/2 h-56 w-[700px] -rotate-[50deg] rounded-full bg-pink-400/30 opacity-60 blur-3xl md:opacity-100"></div>
-        <div className="-z-8 absolute -right-1/4 bottom-1/4 h-56 w-[500px] rotate-[40deg] rounded-full bg-pink-300/40 opacity-60 blur-3xl md:opacity-100"></div>
+        <div className="-z-8 absolute -left-1/4 h-56 w-[700px] -rotate-[50deg] rounded-full bg-pink-400/30  blur-3xl"></div>
+        <div className="-z-8 absolute -right-1/4 h-56 w-[500px] rotate-[40deg] rounded-full bg-pink-400/40  blur-3xl "></div>
       </div>
     </div>
   )

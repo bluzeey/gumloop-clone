@@ -4,7 +4,7 @@ import { env } from "@/env.mjs"
 
 export const siteConfig: SiteConfig = {
   name: "Gumloop | AI Automation Framework",
-  author: "Sahil",
+  author: "Sahil Maheshwari",
   description:
     "The no-code platform to build and host AI-powered business automations.",
   keywords: ["AI Automation", "No-code", "Business Automation", "Gumloop"],

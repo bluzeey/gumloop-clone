@@ -6,7 +6,7 @@ const CTA: React.FC = () => {
       <div className="px-6 py-24 sm:px-6 sm:py-8 lg:px-8">
         <div className="relative mx-auto max-w-2xl text-center">
           {/* Background Blur */}
-          <div className=" -z-8 absolute h-56 w-[500px] rounded-full bg-pink-600/20 blur-3xl md:bg-pink-600/30"></div>
+          <div className=" -z-8 absolute h-56 w-[500px] rounded-full bg-pink-300/40 blur-3xl md:bg-pink-300/40"></div>
 
           {/* Title and Description */}
           <h4 className="pb-2 text-xl uppercase text-pink-400 sm:text-2xl">
