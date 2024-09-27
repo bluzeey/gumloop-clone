@@ -41,6 +41,7 @@ const HowItWorks: React.FC = () => {
               height={720}
               className="rounded-lg object-cover"
               src="/place_operator.gif"
+              unoptimized
             />
           </div>
         </div>
@@ -55,6 +56,7 @@ const HowItWorks: React.FC = () => {
               height={720}
               className="rounded-lg object-cover"
               src="/link_operator.gif"
+              unoptimized
             />
           </div>
 
@@ -97,6 +99,7 @@ const HowItWorks: React.FC = () => {
               height={720}
               className="rounded-lg object-cover"
               src="/run_pipeline.gif"
+              unoptimized
             />
           </div>
         </div>

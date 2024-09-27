@@ -2,16 +2,19 @@ import React from "react"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 
-// Define the type for your JSON structure
+interface KeyOperator {
+  key: string
+  value: (string | number)[]
+}
+
 interface Tool {
   description: string
-  key_operators: {
-    [key: string]: [string, number]
-  }
+  key_operators: KeyOperator[]
   name: string
 }
 
 type ToolsData = Tool[]
+
 interface CardProps {
   data: ToolsData
 }
@@ -54,25 +57,20 @@ const Card: React.FC<CardProps> = ({ data }) => {
                   <div className="mb-2 flex flex-nowrap overflow-hidden py-2">
                     {/* Check if key_operators exists before rendering */}
                     {item.key_operators &&
-                      Object.entries(item.key_operators).map(
-                        ([operator, [icon, count]], opIndex) => (
-                          <div
-                            key={opIndex}
-                            className="mr-2 flex items-baseline"
-                          >
-                            <div className="rounded-full border bg-white/60 p-2 shadow-md">
-                              <Image
-                                alt={operator}
-                                loading="lazy"
-                                width="28"
-                                height="28"
-                                src={`https://gumloop.com/images/${icon}`}
-                                className="h-8 w-8"
-                              />
-                            </div>
+                      item.key_operators.map((operator, opIndex) => (
+                        <div key={opIndex} className="mr-2 flex items-baseline">
+                          <div className="rounded-full border bg-white/60 p-2 shadow-md">
+                            <Image
+                              alt={operator.key}
+                              loading="lazy"
+                              width="28"
+                              height="28"
+                              src={`https://gumloop.com/images/${operator.value[0]}`}
+                              className="h-8 w-8"
+                            />
                           </div>
-                        )
-                      )}
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>

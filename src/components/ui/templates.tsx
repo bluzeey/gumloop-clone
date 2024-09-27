@@ -7,7 +7,14 @@ import toolsData from "../../data/tools.json"
 import Card from "../ui/card" // Import the Card component
 
 const Templates: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("") // Controlled search input, no filtering
+  const [searchTerm, setSearchTerm] = useState("")
+  const transformedToolsData = toolsData.map((tool) => ({
+    ...tool,
+    key_operators: Object.entries(tool.key_operators).map(([key, value]) => ({
+      key, // Assuming 'name' should be 'key'
+      value, // Assuming 'values' should be 'value'
+    })),
+  }))
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
@@ -119,7 +126,7 @@ const Templates: React.FC = () => {
       </div>
 
       {/* Cards (Rendering cards without transformation) */}
-      <Card data={toolsData} />
+      <Card data={transformedToolsData} />
     </div>
   )
 }

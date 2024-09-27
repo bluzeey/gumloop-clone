@@ -38,13 +38,11 @@
     "name": "Gmail Categorizer and Response Generator"
   },
   {
-    "declaration": {
-      "description": "Provides suggestions to enhance LinkedIn profiles based on industry standards.",
-      "key_operators": {
-        "Ask AI": ["ai.png", 1]
-      },
-      "name": "LinkedIn Profile Enhancer"
-    }
+    "description": "Provides suggestions to enhance LinkedIn profiles based on industry standards.",
+    "key_operators": {
+      "Ask AI": ["ai.png", 1]
+    },
+    "name": "LinkedIn Profile Enhancer"
   },
   {
     "description": "Processes a list of news articles, summarizes them and categorizes them using custom user defined categories. ",
