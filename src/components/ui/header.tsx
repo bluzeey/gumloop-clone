@@ -19,13 +19,13 @@ import {
   Youtube,
 } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button"
 
 interface NavItem {
   label: string
@@ -39,17 +39,17 @@ const navItems: NavItem[] = [
     content: [
       {
         label: "Web Scraping",
-        icon: <Globe className="h-4 w-4" />,
+        icon: <Globe className="h-4 w-4 text-pink-400" />,
         link: "/ai-web-scraping",
       },
       {
         label: "SEO Marketing",
-        icon: <Layers className="h-4 w-4" />,
+        icon: <Layers className="h-4 w-4 text-pink-400" />,
         link: "/seo-marketing",
       },
       {
         label: "Document Processing",
-        icon: <BookOpen className="h-4 w-4" />,
+        icon: <BookOpen className="h-4 w-4 text-pink-400" />,
         link: "/document-processing",
       },
     ],
@@ -60,32 +60,32 @@ const navItems: NavItem[] = [
     content: [
       {
         label: "Templates",
-        icon: <BookOpen className="h-4 w-4" />,
+        icon: <BookOpen className="h-4 w-4 text-pink-400" />,
         link: "/templates",
       },
       {
         label: "Chrome Extension",
-        icon: <Puzzle className="h-4 w-4" />,
+        icon: <Puzzle className="h-4 w-4 text-pink-400" />,
         link: "/browser-extension",
       },
       {
         label: "Discord Community",
-        icon: <MessagesSquare className="h-4 w-4" />,
+        icon: <MessagesSquare className="h-4 w-4 text-pink-400" />,
         link: "https://discord.gg/xtbrafmzC7",
       },
       {
         label: "Documentation",
-        icon: <BookOpen className="h-4 w-4" />,
+        icon: <BookOpen className="h-4 w-4 text-pink-400" />,
         link: "https://docs.gumloop.com/getting-started/introduction",
       },
       {
         label: "Youtube Channel",
-        icon: <Youtube className="h-4 w-4" />,
+        icon: <Youtube className="h-4 w-4 text-pink-400" />,
         link: "https://www.youtube.com/@Gumloop_AI",
       },
       {
         label: "Changelog",
-        icon: <NotebookPen className="h-4 w-4" />,
+        icon: <NotebookPen className="h-4 w-4 text-pink-400" />,
         link: "/changelog",
       },
     ],
@@ -128,59 +128,48 @@ export default function Header(): JSX.Element {
   const [isOpen, setIsOpen] = useState<string | null>(null)
 
   return (
-    <header className="">
+    <header className="sticky top-0 z-50 bg-white/30 backdrop-blur-lg">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/gumloop_logo.svg" // Gumloop logo SVG path in the public directory
+            src="/gumloop_logo.svg"
             alt="Gumloop Logo"
             className="h-12 w-auto"
             width={112}
-            height={112} // Adjust size as needed
+            height={112}
           />
         </Link>
 
-        {/* Navigation Options */}
-        <nav className="hidden space-x-6 md:flex">
-          {navItems.map((item) => (
-            <DropdownMenu key={item.label}>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="p-2">
-                  <div className="flex cursor-pointer items-center space-x-2">
-                    <div className="mb-1 rounded-lg p-2">{item.icon}</div>
+        {/* Navigation Options with Accordion */}
+        <nav className="hidden  flex-row items-center justify-center  space-x-8 md:flex">
+          <Accordion className="flex flex-row gap-6" type="multiple">
+            {navItems.map((item) => (
+              <AccordionItem value={item.label} key={item.label}>
+                <AccordionTrigger className="outline-none">
+                  <div className="flex items-center space-x-2">
+                    <div className="mb-1 p-2">{item.icon}</div>
                     <p className="text-xs text-black md:text-sm">
                       {item.label}
                     </p>
-                    <ChevronDown
-                      className={`h-4 w-4 text-pink-400 transition-transform duration-300 ${
-                        isOpen === item.label ? "rotate-180" : ""
-                      }`}
-                    />
                   </div>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="background-blur-xl ml-56 w-56 rounded-2xl border-pink-400 bg-white">
-                {item.content.map((subItem) => (
-                  <DropdownMenuItem
-                    className="space-y-1 rounded-lg"
-                    key={subItem.label}
-                  >
-                    <Link
-                      href={`https://gumloop.com` + subItem.link}
-                      className="group flex items-center space-x-2 text-neutral-700 transition-colors hover:text-pink-500"
-                    >
-                      {subItem.icon}
-                      <span className="relative">
-                        {subItem.label}
-                        <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 transform bg-pink-500 transition-transform group-hover:scale-x-100"></span>
-                      </span>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ))}
+                </AccordionTrigger>
+                <AccordionContent className="absolute ml-6 mt-2 w-56 rounded-lg bg-white shadow-lg">
+                  {item.content.map((subItem) => (
+                    <div key={subItem.label} className="p-2">
+                      <Link
+                        href={subItem.link}
+                        className="flex items-center space-x-2 text-neutral-700 transition-colors hover:text-pink-500"
+                      >
+                        {subItem.icon}
+                        <span>{subItem.label}</span>
+                      </Link>
+                    </div>
+                  ))}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
 
           {/* Pricing Tab */}
           <div className="relative">
@@ -203,7 +192,7 @@ export default function Header(): JSX.Element {
         </Button>
 
         {/* Get Started Button */}
-        <Button className="hidden h-10 items-center justify-center gap-1 space-x-2 rounded-md border border-[#f06293] bg-[#fff0f4] px-5 py-2 text-sm font-medium text-[#f06293] ring-offset-background transition-all duration-100 ease-in-out hover:bg-pink-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex">
+        <Button className="hidden h-10 items-center justify-center gap-1 space-x-2 rounded-md border border-[#f06293] bg-[#fff0f4] px-5 py-2 text-sm font-medium text-[#f06293] ring-offset-background transition-all duration-100 ease-in-out hover:bg-pink-100 focus:outline-none md:inline-flex">
           Get Started
         </Button>
       </div>

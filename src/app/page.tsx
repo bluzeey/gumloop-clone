@@ -23,7 +23,7 @@ export default function Home() {
     >
       <div className="from-warm-grey/50 to-off-white absolute -z-10 h-full w-screen bg-gradient-to-b"></div>
       <Header />
-      <section className="relative flex  flex-col items-center justify-center">
+      <section className="relative flex flex-col items-center justify-center">
         <Hero />
         <Templates />
         <Integration />
