@@ -45,7 +45,7 @@ export default function FAQAccordion() {
   ]
 
   return (
-    <div className="lg:py-30 mx-auto max-w-5xl px-6 py-12 sm:py-32 md:w-2/3 lg:px-8">
+    <div className="font-inter lg:py-30 mx-auto max-w-5xl px-6 py-12 sm:py-32 md:w-2/3 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <h2 className="mb-10 text-2xl font-bold text-black">
           Frequently asked questions
