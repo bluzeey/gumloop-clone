@@ -31,7 +31,7 @@ const Integration: React.FC = () => {
   ]
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center">
+    <div className="my-24 flex h-full w-full items-center justify-center">
       {/* Centering Section */}
       <div className="center m-auto flex max-w-7xl flex-col justify-center">
         {/* Header Section */}

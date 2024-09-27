@@ -10,7 +10,7 @@ const CustomNode = ({ data }: any) => {
 
   return (
     <div
-      className="react-flow__node-input nopan selectable min-h-[40px] min-w-[220px] rounded-2xl rounded-lg border border-gray-300 px-[10px] py-[7px] text-black shadow-sm focus:ring-2 focus:ring-pink-200"
+      className="nopan selectable min-h-[40px] min-w-[220px] rounded-xl border border-gray-300 px-[10px] py-[7px] text-black shadow-sm focus:ring-2 focus:ring-pink-200"
       style={{
         background: `linear-gradient(${gradientColor}, ${gradientColor}), white`,
       }}
@@ -24,7 +24,7 @@ const CustomNode = ({ data }: any) => {
       />
 
       <div
-        className="flex items-center space-x-3 rounded-lg bg-white"
+        className="flex items-center space-x-3 rounded-full bg-white text-sm"
         style={{
           background: `linear-gradient(${gradientColor}, ${gradientColor}), white`,
         }}
@@ -41,7 +41,7 @@ const CustomNode = ({ data }: any) => {
           />
         </div>
         {/* Label */}
-        <span className="font-semibold text-black">{label}</span>
+        <span className="text-xs font-semibold text-black">{label}</span>
       </div>
 
       {/* Bottom Handle */}

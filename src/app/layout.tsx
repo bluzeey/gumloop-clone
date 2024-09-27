@@ -1,13 +1,14 @@
 import "@/styles/globals.css"
 
 import type { Metadata, Viewport } from "next"
-import { Sora } from "next/font/google"
+import { Inter, Sora } from "next/font/google"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const sora = Sora({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] })
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -68,7 +69,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn("min-h-screen bg-background antialiased", sora.className)}
+        className={cn(
+          "min-h-screen bg-background antialiased",
+          sora.className,
+          inter.className
+        )}
       >
         <ThemeProvider
           attribute="class"

@@ -15,6 +15,7 @@ import { useCallback, useState } from "react"
 import CustomNode from "./heronode" // Import the custom node
 
 // Define your edges
+
 const initialEdges = [
   {
     id: "1-2",
@@ -23,7 +24,7 @@ const initialEdges = [
     animated: true,
     type: "smoothstep", // Type to create smooth paths
     className: "animated-edge", // Custom class for styling
-    style: { strokeWidth: 3, stroke: "#000" }, // Custom styles
+    style: { strokeWidth: 3, stroke: "#D1D5DB" }, // Updated stroke color to bg-gray-300
   },
   {
     id: "2-3",
@@ -32,7 +33,7 @@ const initialEdges = [
     animated: true,
     type: "smoothstep",
     className: "animated-edge",
-    style: { strokeWidth: 3, stroke: "#000" },
+    style: { strokeWidth: 3, stroke: "#D1D5DB" }, // Updated stroke color to bg-gray-300
   },
 ]
 
@@ -52,7 +53,7 @@ const initialNodes = [
   {
     id: "2",
     data: {
-      label: "Ask Ai",
+      label: "Ask AI",
       backgroundColor: "rgb(186, 241, 156)", // Light Green
       gradientColor: "rgba(186, 241, 156, 0.2)", // Gradient Color for Default Node
       iconSrc: "/images/openai.png", // Replace with the actual icon path for default

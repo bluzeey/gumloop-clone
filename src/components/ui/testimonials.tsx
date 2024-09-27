@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const Testimonial: React.FC = () => {
   return (
-    <div className=" mt-14 max-w-5xl text-black md:w-2/3">
+    <div className=" my-14 max-w-5xl text-black md:w-2/3">
       <div className="m-auto flex flex-col justify-center p-8">
         {/* Header Section */}
         <h4 className="mb-4 text-center text-2xl font-semibold uppercase text-primary">

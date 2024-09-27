@@ -116,3 +116,8 @@
 .blur-4xl {
   --tw-blur: blur(150px);
 }
+
+.bg-warm-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 248 250 / var(--tw-bg-opacity));
+}

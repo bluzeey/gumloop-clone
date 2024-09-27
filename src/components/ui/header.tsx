@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -11,6 +11,7 @@ import {
   Globe,
   Heart,
   Layers,
+  Library,
   LockKeyhole,
   MessagesSquare,
   Newspaper,
@@ -19,12 +20,6 @@ import {
   Youtube,
 } from "lucide-react"
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 
 interface NavItem {
@@ -125,7 +120,28 @@ const navItems: NavItem[] = [
 ]
 
 export default function Header(): JSX.Element {
-  const [isOpen, setIsOpen] = useState<string | null>(null)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setOpenDropdown(null)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
+
+  const toggleDropdown = (label: string) => {
+    setOpenDropdown(openDropdown === label ? null : label)
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white/30 backdrop-blur-lg">
@@ -141,35 +157,46 @@ export default function Header(): JSX.Element {
           />
         </Link>
 
-        {/* Navigation Options with Accordion */}
-        <nav className="hidden  flex-row items-center justify-center  space-x-8 md:flex">
-          <Accordion className="flex flex-row gap-6" type="multiple">
-            {navItems.map((item) => (
-              <AccordionItem value={item.label} key={item.label}>
-                <AccordionTrigger className="outline-none">
-                  <div className="flex items-center space-x-2">
-                    <div className="mb-1 p-2">{item.icon}</div>
-                    <p className="text-xs text-black md:text-sm">
-                      {item.label}
-                    </p>
+        {/* Navigation Options with Dropdowns */}
+        <nav
+          className="font-inter hidden flex-row items-center justify-center space-x-8 md:flex"
+          ref={dropdownRef}
+        >
+          {navItems.map((item) => (
+            <div key={item.label} className="relative">
+              <button
+                onClick={() => toggleDropdown(item.label)}
+                className="flex items-center space-x-2 outline-none"
+                aria-expanded={openDropdown === item.label}
+                aria-haspopup="true"
+              >
+                <div className="mb-1 p-2">{item.icon}</div>
+                <p className="text-xs text-black md:text-sm">{item.label}</p>
+                <ChevronDown
+                  className={`h-4 w-4 text-pink-400 transition-transform duration-300 ${openDropdown === item.label ? "rotate-180" : ""}`}
+                />
+              </button>
+              <div
+                className={`absolute left-1/2 mt-2 w-56 origin-top -translate-x-1/4 rounded-lg border border-pink-400 bg-white shadow-lg transition-all duration-300 ${
+                  openDropdown === item.label
+                    ? "scale-100 opacity-100"
+                    : "pointer-events-none scale-95 opacity-0"
+                }`}
+              >
+                {item.content.map((subItem) => (
+                  <div key={subItem.label} className="p-2">
+                    <Link
+                      href={subItem.link}
+                      className="flex items-center space-x-2 text-neutral-700 transition-colors hover:text-pink-500"
+                    >
+                      {subItem.icon}
+                      <span>{subItem.label}</span>
+                    </Link>
                   </div>
-                </AccordionTrigger>
-                <AccordionContent className="absolute ml-6 mt-2 w-56 rounded-lg bg-white shadow-lg">
-                  {item.content.map((subItem) => (
-                    <div key={subItem.label} className="p-2">
-                      <Link
-                        href={subItem.link}
-                        className="flex items-center space-x-2 text-neutral-700 transition-colors hover:text-pink-500"
-                      >
-                        {subItem.icon}
-                        <span>{subItem.label}</span>
-                      </Link>
-                    </div>
-                  ))}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                ))}
+              </div>
+            </div>
+          ))}
 
           {/* Pricing Tab */}
           <div className="relative">

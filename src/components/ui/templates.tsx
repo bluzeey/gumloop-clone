@@ -7,7 +7,7 @@ import toolsData from "../../data/tools.json"
 import Card from "../ui/card" // Import the Card component
 
 const svgIcons = {
-  featured: (
+  Featured: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -23,7 +23,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  webScraping: (
+  WebScraping: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -39,7 +39,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  documentProcessing: (
+  DocumentProcessing: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -55,7 +55,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  browserExtension: (
+  BrowserExtension: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -71,7 +71,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  seoMarketing: (
+  SeoMarketing: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -87,7 +87,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  salesCRM: (
+  SalesCRM: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -103,7 +103,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  mediaNews: (
+  MediaNews: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -119,7 +119,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  hrHiring: (
+  HrHiring: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -135,7 +135,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  financialAnalysis: (
+  FinancialAnalysis: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -151,7 +151,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  education: (
+  Education: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -167,7 +167,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  legal: (
+  Legal: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -183,7 +183,7 @@ const svgIcons = {
       />
     </svg>
   ),
-  misc: (
+  Misc: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -217,7 +217,7 @@ const Templates: React.FC = () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center space-y-4">
+      <div className="mb-8 flex flex-col items-center justify-center space-y-4">
         <div className="space-y-2">
           <h4 className="text-center text-xl uppercase text-black text-primary">
             Flow templates
@@ -255,7 +255,8 @@ const Templates: React.FC = () => {
                   >
                     <a className="group flex flex-row items-center justify-start gap-x-3 rounded-md border-2 px-4 py-2 text-xs font-semibold leading-6 transition-all duration-300 hover:border-pink-200 hover:bg-pink-50 hover:text-pink-400">
                       {svgIcons[key as keyof typeof svgIcons]}
-                      {key.charAt(0).toUpperCase() + key.slice(1)}
+                      {key.replace(/([A-Z])/g, " $1").trim()}{" "}
+                      {/* Inserting space before capital letters */}
                     </a>
                   </div>
                 ))}
@@ -264,8 +265,6 @@ const Templates: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Cards (Rendering filtered data) */}
       <Card data={filteredToolsData} />
     </div>
   )
