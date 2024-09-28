@@ -17,6 +17,7 @@ import {
   Newspaper,
   NotebookPen,
   Puzzle,
+  User,
   Youtube,
 } from "lucide-react"
 
@@ -84,7 +85,7 @@ const navItems: NavItem[] = [
         link: "/changelog",
       },
     ],
-    icon: <Layers className="h-4 w-4 text-pink-400 md:h-6 md:w-6" />,
+    icon: <Library className="h-4 w-4 text-pink-400 md:h-6 md:w-6" />,
   },
   {
     label: "Company",
@@ -115,7 +116,7 @@ const navItems: NavItem[] = [
         link: "https://trust.gumloop.com/",
       },
     ],
-    icon: <Heart className="h-4 w-4 text-pink-400 md:h-6 md:w-6" />,
+    icon: <User className="h-4 w-4 text-pink-400 md:h-6 md:w-6" />,
   },
 ]
 
